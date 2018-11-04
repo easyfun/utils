@@ -9,18 +9,50 @@ public class BaseParamDTO implements Serializable {
 
 	private String requestRefNo;
 
-	/** 客户端代理 */
+	/**
+	 * 客户端代理
+	 */
 	private UserAgent userAgent;
 
-	/** 版本号 */
+	/**
+	 * 版本号
+	 */
 	private String version;
 
-	/** 语言 */
+	/**
+	 * 语言
+	 */
 	private String lang;
 
-	private String ip;
+	/**
+	 * 用户ip
+	 */
+	private String userIp;
 
-	private String region;
+	/**
+	 * 用户区域
+	 */
+	private String userRegion;
+
+	/**
+	 * 用户设备id
+	 */
+	private String userDeviceId;
+
+	/**
+	 * 服务名字
+	 */
+	private String serviceName;
+
+	/**
+	 * 服务id
+	 */
+	private String serviceId;
+
+	/**
+	 * 服务ip
+	 */
+	private String serviceIp;
 
 	public String getRequestRefNo() {
 		return requestRefNo;
@@ -54,19 +86,51 @@ public class BaseParamDTO implements Serializable {
 		this.lang = lang;
 	}
 
-	public String getIp() {
-		return ip;
+	public String getUserIp() {
+		return userIp;
 	}
 
-	public void setIp(String ip) {
-		this.ip = ip;
+	public void setUserIp(String userIp) {
+		this.userIp = userIp;
 	}
 
-	public String getRegion() {
-		return region;
+	public String getUserRegion() {
+		return userRegion;
 	}
 
-	public void setRegion(String region) {
-		this.region = region;
+	public void setUserRegion(String userRegion) {
+		this.userRegion = userRegion;
+	}
+
+	public String getUserDeviceId() {
+		return userDeviceId;
+	}
+
+	public void setUserDeviceId(String userDeviceId) {
+		this.userDeviceId = userDeviceId;
+	}
+
+	public String getServiceName() {
+		return serviceName;
+	}
+
+	public void setServiceName(String serviceName) {
+		this.serviceName = serviceName;
+	}
+
+	public String getServiceId() {
+		return serviceId;
+	}
+
+	public void setServiceId(String serviceId) {
+		this.serviceId = serviceId;
+	}
+
+	public String getServiceIp() {
+		return serviceIp;
+	}
+
+	public void setServiceIp(String serviceIp) {
+		this.serviceIp = serviceIp;
 	}
 }
