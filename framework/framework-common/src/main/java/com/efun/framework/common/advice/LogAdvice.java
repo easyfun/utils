@@ -9,7 +9,7 @@ package com.efun.framework.common.advice;
 //	private static final Logger logger = LoggerFactory.getLogger(LogAdvice.class);
 	
 
-//	@Around(value = "execution(* com.sky.*.dubbo.*Service.*(..))")
+//	@Around(value = "execution(* com.efun.*.dubbo.*Service.*(..))")
 //	public Object dubboProcess(ProceedingJoinPoint point) throws ValidationException, Throwable {
 //		String method = point.getSignature().getDeclaringTypeName() + "." + point.getSignature().getName();
 //		Object[] params = point.getArgs();
