@@ -3,17 +3,17 @@ package com.efun.framework.common.exception;
 /**
  * Created by easyfun on 2018/4/28.
  */
-public enum SystemErrorCode implements ErrorCode {
+public enum CommonErrorCode implements ErrorCode {
     /**
-     * 系统异常
+     * 请求参数错误
      */
-    systemException("system00000000"),
+    paramError("common00000000"),
 
     ;
 
     private String errorCode;
 
-    private SystemErrorCode(String errorCode) {
+    private CommonErrorCode(String errorCode) {
         this.errorCode = errorCode;
     }
 

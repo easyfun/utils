@@ -10,8 +10,4 @@ public class JsonUtil {
     public static String toJSONString(Object object) {
         return JSON.toJSONStringWithDateFormat(object, DateUtil.YYYY_MM_DD_HH_MM_SS);
     }
-
-//    public static void main(String[] args) {
-//        System.out.println(toJSONString(new Date()));
-//    }
 }

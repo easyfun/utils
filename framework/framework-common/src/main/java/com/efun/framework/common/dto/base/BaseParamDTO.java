@@ -7,7 +7,7 @@ import java.io.Serializable;
 public class BaseParamDTO implements Serializable {
 	private static final long serialVersionUID = 8399649882058356349L;
 
-	private String requestRefNo;
+	private String applyId;
 
 	/**
 	 * 客户端代理
@@ -54,12 +54,12 @@ public class BaseParamDTO implements Serializable {
 	 */
 	private String serviceIp;
 
-	public String getRequestRefNo() {
-		return requestRefNo;
+	public String getApplyId() {
+		return applyId;
 	}
 
-	public void setRequestRefNo(String requestRefNo) {
-		this.requestRefNo = requestRefNo;
+	public void setApplyId(String applyId) {
+		this.applyId = applyId;
 	}
 
 	public UserAgent getUserAgent() {

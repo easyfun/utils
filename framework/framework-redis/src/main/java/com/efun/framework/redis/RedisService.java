@@ -131,6 +131,7 @@ public class RedisService {
 	}
 
 	/**
+	 * TODO:cluster下有问题，需要修复
 	 * EX seconds -- Set the specified expire time, in seconds.
 	 * PX milliseconds -- Set the specified expire time, in milliseconds.
 	 * NX -- Only set the key if it does not already exist.

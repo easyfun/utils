@@ -1,5 +1,7 @@
 package com.efun.framework.common.exception;
 
+import java.text.ParseException;
+
 /**
  * Created by easyfun on 2018/4/28.
  */
@@ -44,4 +46,29 @@ public class BaseException extends RuntimeException {
     public void setErrorMessage(String errorMessage) {
         this.errorMessage = errorMessage;
     }
+
+    public static ErrorCode getErrorCode(Throwable e){
+        if( ParseException.class.isAssignableFrom(e.getClass()) ){
+            return CommonErrorCode.paramError;
+        }
+
+        Throwable parentCause = e;
+        Throwable cause = parentCause.getCause();
+        while( null != cause ){
+            parentCause = cause;
+            cause = cause.getCause();
+        }
+
+        if(parentCause instanceof BaseException ){
+            return ((BaseException) parentCause).getErrorCode();
+        }else {
+            return SystemErrorCode.systemException;
+        }
+    }
+
+    public static String getFailCode(Throwable e){
+        ErrorCode errorCode = getErrorCode(e);
+        return errorCode.getFailCode();
+    }
+
 }
