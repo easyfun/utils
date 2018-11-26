@@ -1,5 +1,9 @@
 package com.efun.framework.task.entity;
 
+import com.efun.framework.task.enums.RetryStrategy;
+import com.efun.framework.task.enums.TaskMode;
+import com.efun.framework.task.enums.TaskStatus;
+
 import java.util.Date;
 
 /**
@@ -17,10 +21,10 @@ public class TaskPO {
     private String business;
 
     /** 重试策略 */
-    private int retryStrategy;
+    private RetryStrategy retryStrategy;
 
     /** 任务类型 */
-    private int taskMode;
+    private TaskMode taskMode;
 
     /** 重试间隔ms */
     private int retryInterval;
@@ -29,7 +33,7 @@ public class TaskPO {
     private int maxRetryTimes;
 
     /** 执行状态 */
-    private int taskStatus;
+    private TaskStatus taskStatus;
 
     /** 子任务执行进度 */
     private int progress;
@@ -82,11 +86,11 @@ public class TaskPO {
         this.param = param;
     }
 
-    public int getRetryStrategy() {
+    public RetryStrategy getRetryStrategy() {
         return retryStrategy;
     }
 
-    public void setRetryStrategy(int retryStrategy) {
+    public void setRetryStrategy(RetryStrategy retryStrategy) {
         this.retryStrategy = retryStrategy;
     }
 
@@ -106,11 +110,11 @@ public class TaskPO {
         this.maxRetryTimes = maxRetryTimes;
     }
 
-    public int getTaskStatus() {
+    public TaskStatus getTaskStatus() {
         return taskStatus;
     }
 
-    public void setTaskStatus(int taskStatus) {
+    public void setTaskStatus(TaskStatus taskStatus) {
         this.taskStatus = taskStatus;
     }
 
@@ -202,11 +206,11 @@ public class TaskPO {
         this.insertedTime = insertedTime;
     }
 
-    public int getTaskMode() {
+    public TaskMode getTaskMode() {
         return taskMode;
     }
 
-    public void setTaskMode(int taskMode) {
+    public void setTaskMode(TaskMode taskMode) {
         this.taskMode = taskMode;
     }
 }

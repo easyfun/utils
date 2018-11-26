@@ -58,26 +58,26 @@ public class PendRunnable implements Runnable {
      }
 
     private void executeTask(TaskPO taskPO) {
-        if (taskPO.getTaskStatus() == TaskStatus.accepted.getValue() || taskPO.getTaskStatus() == TaskStatus.retrying.getValue()) {
+        if (taskPO.getTaskStatus() == TaskStatus.accepted || taskPO.getTaskStatus() == TaskStatus.retrying) {
             // 超时补任务
             timeoutSupplyRetryTask(taskPO);
             return;
         }
 
-        if (taskPO.getTaskStatus() == TaskStatus.paused.getValue() || taskPO.getTaskStatus() == TaskStatus.cancelled.getValue()) {
+        if (taskPO.getTaskStatus() == TaskStatus.paused || taskPO.getTaskStatus() == TaskStatus.cancelled) {
             // TODO
             return;
         }
 
-        if (taskPO.getTaskStatus() == TaskStatus.successful.getValue()) {
+        if (taskPO.getTaskStatus() == TaskStatus.successful) {
             successFinishTask(taskPO);
             return;
         }
-        if (taskPO.getTaskStatus() == TaskStatus.failed.getValue()) {
+        if (taskPO.getTaskStatus() == TaskStatus.failed) {
             failFinishTask(taskPO);
             return;
         }
-        if (taskPO.getTaskStatus() == TaskStatus.moreRetryFailed.getValue()) {
+        if (taskPO.getTaskStatus() == TaskStatus.moreRetryFailed) {
             moreRetryFailFinishTask(taskPO);
             return;
         }
@@ -86,7 +86,7 @@ public class PendRunnable implements Runnable {
     private void successFinishTask(TaskPO taskPO) {
 //        Date current = new Date();
 //        TaskPOBuilder.updateDoneTime(taskPO, current);
-//        taskPO.setTaskStatus(TaskStatus.successful.getValue());
+//        taskPO.setTaskStatus(TaskStatus.successful);
 
         taskManager.finishTask(taskPO);
     }
@@ -94,7 +94,7 @@ public class PendRunnable implements Runnable {
     private void moreRetryFailFinishTask(TaskPO taskPO) {
 //        Date current = new Date();
 //        TaskPOBuilder.updateDoneTime(taskPO, current);
-//        taskPO.setTaskStatus(TaskStatus.moreRetryFailed.getValue());
+//        taskPO.setTaskStatus(TaskStatus.moreRetryFailed);
 
         taskManager.finishTask(taskPO);
     }
@@ -102,7 +102,7 @@ public class PendRunnable implements Runnable {
     private void failFinishTask(TaskPO taskPO) {
 //        Date current = new Date();
 //        TaskPOBuilder.updateDoneTime(taskPO, current);
-//        taskPO.setTaskStatus(TaskStatus.failed.getValue());
+//        taskPO.setTaskStatus(TaskStatus.failed);
 
         taskManager.finishTask(taskPO);
     }

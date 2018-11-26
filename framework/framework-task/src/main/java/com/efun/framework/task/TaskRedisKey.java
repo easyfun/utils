@@ -31,7 +31,7 @@ public class TaskRedisKey {
     }
 
     public static String buildKeyPending(TaskPO taskPO) {
-        if (taskPO.getTaskMode() == TaskMode.normal.getValue()) {
+        if (taskPO.getTaskMode() == TaskMode.normal) {
             return TASK_PENDING;
         }
         return TASK_PENDING_SPECIAL;
@@ -45,7 +45,7 @@ public class TaskRedisKey {
     }
 
     public static String buildKeyExecuting(TaskPO taskPO) {
-        if (taskPO.getTaskMode() == TaskMode.normal.getValue()) {
+        if (taskPO.getTaskMode() == TaskMode.normal) {
             return TASK_EXECUTING;
         }
         return TASK_EXECUTING_SPECIAL + ":" + taskPO.getHandler();

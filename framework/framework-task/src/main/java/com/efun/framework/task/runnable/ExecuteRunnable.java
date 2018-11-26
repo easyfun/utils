@@ -97,7 +97,7 @@ public class ExecuteRunnable implements Runnable {
     private void successTask(TaskExecuteResult result, TaskPO taskPO) {
         Date current = new Date();
         TaskPOBuilder.updateDoneTime(taskPO, current);
-        taskPO.setTaskStatus(TaskStatus.successful.getValue());
+        taskPO.setTaskStatus(TaskStatus.successful);
         taskPO.setProgress(result.getProgress());
 
         taskManager.successTask(taskPO);
@@ -106,7 +106,7 @@ public class ExecuteRunnable implements Runnable {
     private void failTask(TaskExecuteResult result, TaskPO taskPO) {
         Date current = new Date();
         TaskPOBuilder.updateDoneTime(taskPO, current);
-        taskPO.setTaskStatus(TaskStatus.failed.getValue());
+        taskPO.setTaskStatus(TaskStatus.failed);
         taskPO.setProgress(result.getProgress());
 
         taskManager.failTask(taskPO);
@@ -122,12 +122,12 @@ public class ExecuteRunnable implements Runnable {
 
         taskPO.setNextTime(DateUtil.addMiliSeconds(taskPO.getNextTime(), taskPO.getRetryInterval()));
 
-        if (taskPO.getRetryStrategy() == RetryStrategy.normal.getValue() && taskPO.getRetriedTimes() >= taskPO.getMaxRetryTimes()) {
+        if (taskPO.getRetryStrategy() == RetryStrategy.normal && taskPO.getRetriedTimes() >= taskPO.getMaxRetryTimes()) {
             TaskPOBuilder.updateDoneTime(taskPO, current);
-            taskPO.setTaskStatus(TaskStatus.moreRetryFailed.getValue());
+            taskPO.setTaskStatus(TaskStatus.moreRetryFailed);
             taskManager.failTask(taskPO);
         } else {
-            taskPO.setTaskStatus(TaskStatus.retrying.getValue());
+            taskPO.setTaskStatus(TaskStatus.retrying);
             taskManager.retryTask(taskPO);
         }
     }

@@ -7,10 +7,10 @@
     <result column="param" jdbcType="VARCHAR" property="param" />
     <result column="handler" jdbcType="VARCHAR" property="handler" />
     <result column="business" jdbcType="VARCHAR" property="business" />
-    <result column="retry_strategy" jdbcType="INTEGER" property="retryStrategy" />
+    <result column="retry_strategy" jdbcType="VARCHAR" property="retryStrategy" />
     <result column="retry_interval" jdbcType="INTEGER" property="retryInterval" />
     <result column="max_retry_times" jdbcType="INTEGER" property="maxRetryTimes" />
-    <result column="task_status" jdbcType="INTEGER" property="taskStatus" />
+    <result column="task_status" jdbcType="VARCHAR" property="taskStatus" />
     <result column="progress" jdbcType="INTEGER" property="progress" />
     <result column="retried_times" jdbcType="INTEGER" property="retriedTimes" />
     <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
@@ -20,7 +20,7 @@
     <result column="done_time" jdbcType="TIMESTAMP" property="doneTime" />
     <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime" />
     <result column="inserted_time" jdbcType="TIMESTAMP" property="insertedTime" />
-    <result column="task_mode" jdbcType="INTEGER" property="taskMode" />
+    <result column="task_mode" jdbcType="VARCHAR" property="taskMode" />
   </resultMap>
   <sql id="Base_Column_List">
     id, task_key, param, handler, business, retry_strategy, retry_interval, max_retry_times, 
@@ -47,12 +47,12 @@
       first_time, last_time, next_time, 
       done_time, updated_time, inserted_time, task_mode)
     values (#{id,jdbcType=BIGINT}, #{taskKey,jdbcType=VARCHAR}, #{param,jdbcType=VARCHAR}, 
-      #{handler,jdbcType=VARCHAR}, #{business,jdbcType=VARCHAR}, #{retryStrategy,jdbcType=INTEGER}, 
-      #{retryInterval,jdbcType=INTEGER}, #{maxRetryTimes,jdbcType=INTEGER}, #{taskStatus,jdbcType=INTEGER}, 
+      #{handler,jdbcType=VARCHAR}, #{business,jdbcType=VARCHAR}, #{retryStrategy,jdbcType=VARCHAR},
+      #{retryInterval,jdbcType=INTEGER}, #{maxRetryTimes,jdbcType=INTEGER}, #{taskStatus,jdbcType=VARCHAR},
       #{progress,jdbcType=INTEGER}, #{retriedTimes,jdbcType=INTEGER}, #{createdTime,jdbcType=TIMESTAMP}, 
       #{firstTime,jdbcType=TIMESTAMP}, #{lastTime,jdbcType=TIMESTAMP}, #{nextTime,jdbcType=TIMESTAMP}, 
       #{doneTime,jdbcType=TIMESTAMP}, #{updatedTime,jdbcType=TIMESTAMP}, #{insertedTime,jdbcType=TIMESTAMP},
-      #{taskMode,jdbcType=INTEGER})
+      #{taskMode,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.efun.framework.task.entity.TaskPO">
     insert into t_task
@@ -132,7 +132,7 @@
         #{business,jdbcType=VARCHAR},
       </if>
       <if test="retryStrategy != null">
-        #{retryStrategy,jdbcType=INTEGER},
+        #{retryStrategy,jdbcType=VARCHAR},
       </if>
       <if test="retryInterval != null">
         #{retryInterval,jdbcType=INTEGER},
@@ -141,7 +141,7 @@
         #{maxRetryTimes,jdbcType=INTEGER},
       </if>
       <if test="taskStatus != null">
-        #{taskStatus,jdbcType=INTEGER},
+        #{taskStatus,jdbcType=VARCHAR},
       </if>
       <if test="progress != null">
         #{progress,jdbcType=INTEGER},
@@ -171,7 +171,7 @@
         #{insertedTime,jdbcType=TIMESTAMP},
       </if>
       <if test="taskMode != null">
-        #{taskMode,jdbcType=INTEGER},
+        #{taskMode,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -191,7 +191,7 @@
         business = #{business,jdbcType=VARCHAR},
       </if>
       <if test="retryStrategy != null">
-        retry_strategy = #{retryStrategy,jdbcType=INTEGER},
+        retry_strategy = #{retryStrategy,jdbcType=VARCHAR},
       </if>
       <if test="retryInterval != null">
         retry_interval = #{retryInterval,jdbcType=INTEGER},
@@ -200,7 +200,7 @@
         max_retry_times = #{maxRetryTimes,jdbcType=INTEGER},
       </if>
       <if test="taskStatus != null">
-        task_status = #{taskStatus,jdbcType=INTEGER},
+        task_status = #{taskStatus,jdbcType=VARCHAR},
       </if>
       <if test="progress != null">
         progress = #{progress,jdbcType=INTEGER},
@@ -227,7 +227,7 @@
         updated_time = #{updatedTime,jdbcType=TIMESTAMP},
       </if>
       <if test="taskMode != null">
-        task_mode = #{taskMode,jdbcType=INTEGER},
+        task_mode = #{taskMode,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
@@ -238,10 +238,10 @@
       param = #{param,jdbcType=VARCHAR},
       handler = #{handler,jdbcType=VARCHAR},
       business = #{business,jdbcType=VARCHAR},
-      retry_strategy = #{retryStrategy,jdbcType=INTEGER},
+      retry_strategy = #{retryStrategy,jdbcType=VARCHAR},
       retry_interval = #{retryInterval,jdbcType=INTEGER},
       max_retry_times = #{maxRetryTimes,jdbcType=INTEGER},
-      task_status = #{taskStatus,jdbcType=INTEGER},
+      task_status = #{taskStatus,jdbcType=VARCHAR},
       progress = #{progress,jdbcType=INTEGER},
       retried_times = #{retriedTimes,jdbcType=INTEGER},
       created_time = #{createdTime,jdbcType=TIMESTAMP},
@@ -250,7 +250,7 @@
       next_time = #{nextTime,jdbcType=TIMESTAMP},
       done_time = #{doneTime,jdbcType=TIMESTAMP},
       updated_time = #{updatedTime,jdbcType=TIMESTAMP},
-      task_mode = #{taskMode,jdbcType=INTEGER}
+      task_mode = #{taskMode,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>
