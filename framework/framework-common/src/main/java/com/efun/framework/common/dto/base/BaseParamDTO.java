@@ -1,6 +1,9 @@
 package com.efun.framework.common.dto.base;
 
 import com.efun.framework.common.enums.UserAgent;
+import com.efun.framework.common.exception.BusinessException;
+import com.efun.framework.common.exception.CommonErrorCode;
+import org.apache.commons.lang3.StringUtils;
 
 import java.io.Serializable;
 
@@ -133,4 +136,71 @@ public class BaseParamDTO implements Serializable {
 	public void setServiceIp(String serviceIp) {
 		this.serviceIp = serviceIp;
 	}
+
+	public void validateBaseParam() {
+		validateApplyId();
+		validateUserAgent();
+		validateVersion();
+		validateLang();
+		validateUserIp();
+//		validateUserRegion();
+		validateUserDeviceId();
+//		validateServiceId();
+//		validateServiceIp();
+	}
+
+	public void validateApplyId() {
+		if (StringUtils.isBlank(applyId)) {
+			throw new BusinessException(CommonErrorCode.paramError);
+		}
+	}
+
+	public void validateUserAgent() {
+		if (null == userAgent) {
+			throw new BusinessException(CommonErrorCode.paramError);
+		}
+	}
+
+	public void validateVersion() {
+		if (StringUtils.isBlank(version)) {
+			throw new BusinessException(CommonErrorCode.paramError);
+		}
+	}
+
+	public void validateLang() {
+		if (StringUtils.isBlank(lang)) {
+			throw new BusinessException(CommonErrorCode.paramError);
+		}
+	}
+
+	public void validateUserIp() {
+		if (StringUtils.isBlank(userIp)) {
+			throw new BusinessException(CommonErrorCode.paramError);
+		}
+	}
+
+	public void validateUserRegion() {
+		if (StringUtils.isBlank(userRegion)) {
+			throw new BusinessException(CommonErrorCode.paramError);
+		}
+	}
+
+	public void validateUserDeviceId() {
+		if (StringUtils.isBlank(userDeviceId)) {
+			throw new BusinessException(CommonErrorCode.paramError);
+		}
+	}
+
+	public void validateServiceId() {
+		if (StringUtils.isBlank(serviceId)) {
+			throw new BusinessException(CommonErrorCode.paramError);
+		}
+	}
+
+	public void validateServiceIp() {
+		if (StringUtils.isBlank(serviceIp)) {
+			throw new BusinessException(CommonErrorCode.paramError);
+		}
+	}
+
 }
