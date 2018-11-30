@@ -22,4 +22,8 @@ public class BusinessException extends BaseException {
         super(errorCode, e);
     }
 
+    @Override
+    public String toString() {
+        return "BusinessException{" + super.toString() + "}";
+    }
 }

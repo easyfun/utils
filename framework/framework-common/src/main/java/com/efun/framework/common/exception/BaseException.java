@@ -21,14 +21,14 @@ public class BaseException extends RuntimeException {
     }
 
     public BaseException(ErrorCode errorCode, String errorMessage, Throwable e) {
+        super(String.format("errorCodeName=%s,errorCode=%s,errorMessage=%s", errorCode, errorCode.getFailCode(), errorMessage), e);
         this.errorCode = errorCode;
         this.errorMessage = errorMessage;
-        super.initCause(e);
     }
 
     public BaseException(ErrorCode errorCode, Throwable e) {
+        super(String.format("errorCode=%s", errorCode.getFailCode()), e);
         this.errorCode = errorCode;
-        super.initCause(e);
     }
 
     public ErrorCode getErrorCode() {
@@ -69,6 +69,14 @@ public class BaseException extends RuntimeException {
     public static String getFailCode(Throwable e){
         ErrorCode errorCode = getErrorCode(e);
         return errorCode.getFailCode();
+    }
+
+    @Override
+    public String toString() {
+        return "BaseException{" +
+                "errorCode=" + errorCode +
+                ", errorMessage='" + errorMessage + '\'' +
+                '}';
     }
 
 }
