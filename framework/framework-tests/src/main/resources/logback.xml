@@ -60,9 +60,9 @@
 	</appender>
 
 	<!-- 	<appender name="netty.file.info" class="ch.qos.logback.core.rolling.RollingFileAppender">
-            <File>${log.base}/netty_info.log</File>
+            <File>${log.extend}/netty_info.log</File>
             <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-                <FileNamePattern>${log.base}/archive_%d{yyyy-MM}/${log.moduleName}_all_%d{yyyy-MM-dd}.%i.log.zip
+                <FileNamePattern>${log.extend}/archive_%d{yyyy-MM}/${log.moduleName}_all_%d{yyyy-MM-dd}.%i.log.zip
                 </FileNamePattern>
                 <timeBasedFileNamingAndTriggeringPolicy
                     class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
@@ -74,9 +74,9 @@
             </layout>
         </appender>
         <appender name="netty.file.error" class="ch.qos.logback.core.rolling.RollingFileAppender">
-            <File>${log.base}/netty_error.log</File>
+            <File>${log.extend}/netty_error.log</File>
             <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-                <FileNamePattern>${log.base}/archive_%d{yyyy-MM}/${log.moduleName}_err_%d{yyyy-MM-dd}.%i.log.zip
+                <FileNamePattern>${log.extend}/archive_%d{yyyy-MM}/${log.moduleName}_err_%d{yyyy-MM-dd}.%i.log.zip
                 </FileNamePattern>
                 <timeBasedFileNamingAndTriggeringPolicy
                     class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">

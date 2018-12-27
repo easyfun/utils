@@ -1,6 +1,8 @@
 package com.efun.framework.common.dto.base;
 
 import com.efun.framework.common.enums.Result;
+import com.efun.framework.common.exception.BaseException;
+import com.efun.framework.common.exception.ErrorCode;
 
 import java.io.Serializable;
 
@@ -56,6 +58,15 @@ public class BaseResultDTO implements Serializable {
 
 	public static BaseResultDTO fail(String failCode, String failReason) {
 		return new BaseResultDTO(Result.fail, failCode, failReason);
+	}
+
+	public static BaseResultDTO fail(ErrorCode errorCode) {
+		return new BaseResultDTO(Result.fail, errorCode.getFailCode(), errorCode.getFailReason());
+	}
+
+	public static BaseResultDTO fail(Exception e) {
+		ErrorCode errorCode = BaseException.getErrorCode(e);
+		return new BaseResultDTO(Result.fail, errorCode.getFailCode(), errorCode.getFailReason());
 	}
 
 }

@@ -151,55 +151,55 @@ public class BaseParamDTO implements Serializable {
 
 	public void validateApplyId() {
 		if (StringUtils.isEmpty(applyId)) {
-			throw new BusinessException(CommonErrorCode.paramError);
+			throw new BusinessException(CommonErrorCode.requestParamError);
 		}
 	}
 
 	public void validateUserAgent() {
 		if (null == userAgent) {
-			throw new BusinessException(CommonErrorCode.paramError);
+			throw new BusinessException(CommonErrorCode.requestParamError);
 		}
 	}
 
 	public void validateVersion() {
 		if (StringUtils.isEmpty(version)) {
-			throw new BusinessException(CommonErrorCode.paramError);
+			throw new BusinessException(CommonErrorCode.requestParamError);
 		}
 	}
 
 	public void validateLang() {
 		if (StringUtils.isEmpty(lang)) {
-			throw new BusinessException(CommonErrorCode.paramError);
+			throw new BusinessException(CommonErrorCode.requestParamError);
 		}
 	}
 
 	public void validateUserIp() {
 		if (StringUtils.isEmpty(userIp)) {
-			throw new BusinessException(CommonErrorCode.paramError);
+			throw new BusinessException(CommonErrorCode.requestParamError);
 		}
 	}
 
 	public void validateUserRegion() {
 		if (StringUtils.isEmpty(userRegion)) {
-			throw new BusinessException(CommonErrorCode.paramError);
+			throw new BusinessException(CommonErrorCode.requestParamError);
 		}
 	}
 
 	public void validateUserDeviceId() {
 		if (StringUtils.isEmpty(userDeviceId)) {
-			throw new BusinessException(CommonErrorCode.paramError);
+			throw new BusinessException(CommonErrorCode.requestParamError);
 		}
 	}
 
 	public void validateServiceId() {
 		if (StringUtils.isEmpty(serviceId)) {
-			throw new BusinessException(CommonErrorCode.paramError);
+			throw new BusinessException(CommonErrorCode.requestParamError);
 		}
 	}
 
 	public void validateServiceIp() {
 		if (StringUtils.isEmpty(serviceIp)) {
-			throw new BusinessException(CommonErrorCode.paramError);
+			throw new BusinessException(CommonErrorCode.requestParamError);
 		}
 	}
 

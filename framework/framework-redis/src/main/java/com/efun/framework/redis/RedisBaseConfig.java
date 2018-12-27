@@ -23,7 +23,7 @@ public class RedisBaseConfig {
 	/** 更新时间间隔(分钟) */
 	private int refreshInterval = 5;
 	
-	private static final String baseDataRedisKey = "base.config";
+	private static final String baseDataRedisKey = "extend.config";
 	
 	/**
 	 * 获取基础数据

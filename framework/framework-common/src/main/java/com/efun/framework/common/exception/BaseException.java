@@ -49,7 +49,7 @@ public class BaseException extends RuntimeException {
 
     public static ErrorCode getErrorCode(Throwable e){
         if( ParseException.class.isAssignableFrom(e.getClass()) ){
-            return CommonErrorCode.paramError;
+            return CommonErrorCode.requestParamError;
         }
 
         Throwable parentCause = e;
